@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Test</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{message}}</h1>
+    <!--Chama a função clickMe() quando o botão for clicado-->
+    <button @click="clickMe">click Me!</button>
+  </div>
+
+  <script>
+    // cria a constante app que guarda o objeto Vue que cria um novo app
+    const app = Vue.createApp({
+      //função que retorna um objeto com dados
+      data(){
+        return{
+          //retorna o atributo message com o valor 'hello world'
+          message: `Hello World!`
+        }
+      },//não esquecer da virgula
+      //guarda os metodos do componente
+      methods: {
+        clickMe(){
+          alert('You clicked me! Yippie!!!:D');
+          //muda o atributo message
+          this.message = 'Hello Vue!'
+        }
+      }
+    })
+
+    //'joga' o obejeto que criamos em app para a div com o id app
+    //seletor estilo CSS
+    app.mount('#app');
+  </script>
+</body>
+</html>
